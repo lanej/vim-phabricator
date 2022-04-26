@@ -21,9 +21,8 @@
 " vint: -ProhibitAutocmdWithNoGroup
 autocmd BufNewFile,BufRead .arc{config,lint,rc,unit} setfiletype json
 
-let s:tmp = !empty($TMPDIR) ? '$TMPDIR' : '/tmp'
-execute 'au BufNewFile,BufRead ' . s:tmp . '/*/arcanist-patch-commit-message setfiletype arcanistdiff'
-execute 'au BufNewFile,BufRead ' . s:tmp . '/*/commit-message setfiletype arcanistdiff'
-execute 'au BufNewFile,BufRead ' . s:tmp . '/*/differential-edit-revision-info setfiletype arcanistdiff'
-execute 'au BufNewFile,BufRead ' . s:tmp . '/*/differential-update-comments setfiletype arcanistdiff'
-execute 'au BufNewFile,BufRead ' . s:tmp . '/*/new-commit setfiletype arcanistdiff'
+execute 'au BufNewFile,BufRead arcanist-patch-commit-message setfiletype arcanistdiff'
+execute 'au BufNewFile,BufRead commit-message setfiletype arcanistdiff'
+execute 'au BufNewFile,BufRead differential-edit-revision-info setfiletype arcanistdiff'
+execute 'au BufNewFile,BufRead differential-update-comments setfiletype arcanistdiff'
+execute 'au BufNewFile,BufRead new-commit setfiletype arcanistdiff'
