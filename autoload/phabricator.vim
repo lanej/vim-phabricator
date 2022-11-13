@@ -168,6 +168,8 @@ function! phabricator#fugitive_url(...) abort
   if empty(root)
     return ''
   endif
+  let root_suffix = substitute(matchstr(opts.remote, 'source\/\(.*\).git'), '.git', '', '')
+  let root = root . '/' . root_suffix
   let path = substitute(opts.path, '^/', '', '')
   if path =~# '^\.git/refs/heads/'
     return root . '/history/' . path[16:-1]
