@@ -39,7 +39,7 @@ function! s:diffusion_root_for_remote(url) abort
   for host in hosts
     let host_pattern .= '\|' . escape(split(host, '://')[-1], '.')
   endfor
-  let matcher = '^\%(https\=://\|git://\|git@\|ssh://code@\|ssh://git@\)\=\zs\('.host_pattern.'\)\%(:\d\{1,5}\)'
+  let matcher = '^\%(https\=://\|git://\|git@\|ssh://code@\|ssh://git@\)\=\zs\('.host_pattern.'\)\%(:\d\{1,5}\)\/source\/[a-z]\+'
   let base = matchstr(a:url, matcher)
   if !empty(base)
     " Remove the port component of the hostname.
